@@ -10,7 +10,7 @@ public class DamageHandler : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Damage: " + CalculateDamage(other));
+        // Debug.Log("Damage: " + CalculateDamage(other));
         health -= CalculateDamage(other);
     }
 
@@ -18,7 +18,7 @@ public class DamageHandler : MonoBehaviour
     {
         float ret = 0f;
         int collisionWith = other.gameObject.layer;
-        Debug.Log(collisionWith);
+        // Debug.Log(collisionWith);
         switch (collisionWith)
         {
             // PlayerShip

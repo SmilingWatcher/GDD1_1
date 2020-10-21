@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using UnityEngine;
+using Debug = UnityEngine.Debug;
 using Random = UnityEngine.Random;
 
 public class EnemyMovement : MonoBehaviour
@@ -12,7 +14,10 @@ public class EnemyMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _targetPosition = Random.Range(12f, 14.5f);
+        float height = Camera.main.orthographicSize;
+        float screenRatio = (float)Screen.width / (float)Screen.height;
+        float width = height * screenRatio;
+        _targetPosition = Random.Range(width / 2.0f, width - 1.5f);
     }
 
     // Update is called once per frame

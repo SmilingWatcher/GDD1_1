@@ -27,7 +27,10 @@ public class Game : MonoBehaviour
         _enemyPositions = new List<Vector3>();
         _possibleEnemyPositions = new List<int>();
         _phase = 0;
-        Vector3 playerInitialPosition = new Vector3(-13.0f, 0.0f, 0.0f);
+        float height = Camera.main.orthographicSize;
+        float screenRatio = (float)Screen.width / (float)Screen.height;
+        float width = height * screenRatio;
+        Vector3 playerInitialPosition = new Vector3(-(width /2.0f), 0.0f, 0.0f);
         Instantiate(player, playerInitialPosition, player.transform.rotation);
         int index = 0;
         for (float i = -6f; i <= 6f; i += 2)
@@ -102,19 +105,19 @@ public class Game : MonoBehaviour
 
     public void KillBoss()
     {
-        Debug.Log("WIN");
+        //Debug.Log("WIN");
         SceneManager.LoadScene("WinScreen");
     }
 
     public void KillPlayer()
     {
-        Debug.Log("GAME OVER");
+        //Debug.Log("GAME OVER");
         SceneManager.LoadScene("LoseScreen");
     }
 
     public void WitchTime()
     {
-        Debug.Log("WITCH TIME");
+        //Debug.Log("WITCH TIME");
         slowMotion = true;
         _witchTimeTimer = 0;
     }
